@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewpoint" content="width=device=width, initial-scale=1.0">
+        <title>Weather App </title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body >
+        <div class="card">
+            <div class="search">
+                <input type="text" placeholder="enter city name" spellcheck="false">
+                <button><img src="images/search.png"></button>
+            </div>
+            <div class="weather">
+                <img class="weather-icon" src="images/rain.png" >
+                <h1 class="temp">22°c</h1>
+                <h2 class="city">Kavali</h2>
+                <div class="details">
+                    <div class="col">
+                        <img src="images/humidity.png" >
+                        <div >
+                            <p class="humidity">50%</p>
+                            <p>Humidity</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <img src="images/wind.png" >
+                        <div >
+                            <p class="wind">15kmph</p>
+                            <p>Wind speed</p>
+                        </div>
+                    </div>
+                 
+                </div>
+            </div>
+        </div>
+        <script>
+            const  apiKey="af0536b9b2203c16cb357998c2dafe3a";
+            const url="https://api.openweathermap.org/data/2.5/weather?units=metric&q=kavali";
+
+            async function checkWeather(){
+                const response = await fetch(url+`&appid=${apiKey}`);
+                var data = await response.json();
+                console.log(data);
+            }
+            checkWeather();
+        </script>
+    </body>
+</html>
